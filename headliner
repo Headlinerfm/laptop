@@ -1,0 +1,24 @@
+echo "where do you want to install? Please use the full path to directory we will clone headliner into"
+read PATH
+echo "install to $PATH: y/n?"
+read INSTALL
+
+if [ INSTALL = "y" ]; then
+  mkdir -p $PATH
+  git clone git@github.com:Headlinerfm/headlinerlite.git $PATH/headlinerlite
+  cd $PATH/headlinerlite
+  git submodule init
+  git submodule update
+  mysql -u root -h localhost -e "create database headlinerlite; create database headlinerlite_dev;"
+  bundle install --path vendor
+  rake db:migrate
+  rake db:seed
+  rake db:test:prepare
+else
+  echo "ok, so we won't install headliner."
+fi
+
+echo "installing nginx, you'll thank us later."
+bundle exec passenger-install-nginx-module  --auto --auto-download
+
+echo "all done for now. pester bill, and he'll put together your nginx config"
