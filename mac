@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
+if [ -f /usr/bin/gcc ]
+then
+    echo "gcc exists"
+else
+  "echo go get GCC! and try again"
+  open https://github.com/kennethreitz/osx-gcc-installer
+  exit
+fi
 
+fi
 echo "Checking for SSH key, generating one if it doesn't exist ..."
   [[ -f ~/.ssh/id_rsa.pub ]] || ssh-keygen -t rsa
 
