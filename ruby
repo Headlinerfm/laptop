@@ -19,4 +19,4 @@ echo "installing bundler"
 #   gem install pg --no-rdoc --no-ri
 
 echo "installing headliner and setting it up"
-  bash < <(curl -s https://raw.github.com/headliner/laptop/master/headliner)
+  bash < <(curl -s https://raw.github.com/Headlinerfm/laptop/master/headliner)

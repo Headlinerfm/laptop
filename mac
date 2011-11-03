@@ -8,7 +8,6 @@ else
   exit
 fi
 
-fi
 echo "Checking for SSH key, generating one if it doesn't exist ..."
   [[ -f ~/.ssh/id_rsa.pub ]] || ssh-keygen -t rsa
 
@@ -23,8 +22,8 @@ echo "Installing Homebrew, a good OS X package manager ..."
 echo "Put Homebrew location earlier in PATH ..."
   echo "
 # recommended by brew doctor
-export PATH='/usr/local/bin:$PATH'" >> ~/.bashrc
-  source ~/.bashrc
+export PATH='/usr/local/bin:$PATH'" >> ~/.bash_profile
+  source ~/.bash_profile
 
 echo "Installing Mysql, a good open source relational database ..."
   
@@ -56,7 +55,7 @@ echo "Installing RVM (Ruby Version Manager) ..."
   echo "
 # RVM
 [[ -s '/Users/`whoami`/.rvm/scripts/rvm' ]] && source '/Users/`whoami`/.rvm/scripts/rvm'" >> ~/.bashrc
-  source ~/.bashshrc
+  source ~/.bash_profile
 
   echo "gem: --no-ri --no-rdoc" >>~/.gemrc
   echo "require 'rubygems'
@@ -71,4 +70,4 @@ echo "Installing RVM (Ruby Version Manager) ..."
     IRB.conf[:LOAD_MODULES] << 'irb/completion'
   end " >> ~/.irbrc
  echo "starting the ruby setup"
-bash < <(curl -s https://raw.github.com/headliner/laptop/master/ruby)
+bash < <(curl -s https://raw.github.com/Headlinerfm/laptop/master/ruby)
