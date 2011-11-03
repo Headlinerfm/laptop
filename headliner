@@ -5,8 +5,15 @@ read INSTALL
 
 if [ INSTALL = "y" ]; then
   mkdir -p $PATH
+  echo "what is your name?, first and last please"
+  read NAME
+  git config --global user.name $NAME
+  echo "what is your headliner email address?"
+  read EMAIL
+  git config --global user.email $EMAIL
   git clone git@github.com:Headlinerfm/headlinerlite.git $PATH/headlinerlite
   cd $PATH/headlinerlite
+  git checkout dev
   git submodule init
   git submodule update
   mysql -u root -h localhost -e "create database headlinerlite; grant all on headlinerlite.* to 'root'@'localhost'"
@@ -23,4 +30,7 @@ fi
 echo "installing nginx, you'll thank us later."
 bundle exec passenger-install-nginx-module  --auto --auto-download
 
+# [[ -f ~/.ssh/id_rsa.pub ]] && cat ~/.ssh/id_rsa.pub >> $PATH/headlinerlite/authorized_keys
+# git commit authorized_keys -m "$NAME keys"
+# git push origin dev
 echo "all done for now. pester bill, and he'll put together your nginx config"
