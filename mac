@@ -49,5 +49,17 @@ echo "Installing RVM (Ruby Version Manager) ..."
 [[ -s '/Users/`whoami`/.rvm/scripts/rvm' ]] && source '/Users/`whoami`/.rvm/scripts/rvm'" >> ~/.bashrc
   source ~/.bashshrc
 
-echo "starting the ruby setup"
+  echo "gem: --no-ri --no-rdoc" >>~/.gemrc
+  echo "require 'rubygems'
+  require 'pp'
+  require 'wirble'
+  Wirble.init
+  Wirble.colorize
+  IRB.conf[:AUTO_INDENT] = true
+  IRB.conf[:USE_READLINE] = true
+  IRB.conf[:LOAD_MODULES] = [] unless IRB.conf.key?(:LOAD_MODULES)
+  unless IRB.conf[:LOAD_MODULES].include?('irb/completion')
+    IRB.conf[:LOAD_MODULES] << 'irb/completion'
+  end " >> ~/.irbrc
+ echo "starting the ruby setup"
 bash < <(curl -s https://raw.github.com/headliner/laptop/master/ruby)
