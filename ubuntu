@@ -13,11 +13,14 @@ echo "Using apt-get to install OS packages so let's update it first ..."
 echo "Installing OS packages. You will be prompted for your password ..."
   sudo apt-get install build-essential bison openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev -y
 
-echo "Install Postgres, a great open source relational database ..."
+echo "Install Mysql, a great open source relational database ..."
   sudo apt-get install mysql5-server mysql5-client libmysqlclient-dev libmysqld-dev libxml2-dev libxslt1-dev libsqlite3-dev -y
 
 echo "Install Redis, a key-value database ..."
   sudo apt-get install redis-server -y
+
+echo " installing php"
+  sudo apt-get install php5 php5-apc php5-mysql -y
 
 echo "Installing ack, a good way to search through files ..."
   sudo apt-get install ack-grep -y
