@@ -30,5 +30,5 @@ echo "Installing ack, a good way to search through files ..."
 
 echo "Installing RVM (Ruby Version Manager) ..."
   curl -s https://rvm.beginrescueend.com/install/rvm -o rvm-installer ; chmod +x rvm-installer ; ./rvm-installer --version latest
-
+exec bash
 bash < <(curl -s https://raw.github.com/headliner/laptop/master/ruby)

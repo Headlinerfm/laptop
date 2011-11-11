@@ -1,14 +1,14 @@
-echo "where do you want to install? Please use the full path to directory we will clone headliner into"
+echo  -n "where do you want to install? Please use the full path to directory we will clone headliner into"
 read PATH
-echo "install to $PATH: y/n?"
+echo  -n "install to $PATH: y/n?"
 read INSTALL
 
 if [ INSTALL = "y" ]; then
   mkdir -p $PATH
-  echo "what is your name?, first and last please"
+  echo  -n "what is your name?, first and last please"
   read NAME
   git config --global user.name $NAME
-  echo "what is your headliner email address?"
+  echo  -n "what is your headliner email address?"
   read EMAIL
   git config --global user.email $EMAIL
   git clone git@github.com:Headlinerfm/headlinerlite.git $PATH/headlinerlite
