@@ -19,6 +19,9 @@ echo "Installing Homebrew, a good OS X package manager ..."
   /usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/gist/323731)"
   brew update
 
+echo "installing Git, cus you'll need it"
+  brew install git
+
 echo "Put Homebrew location earlier in PATH ..."
   echo "
 # recommended by brew doctor
@@ -42,8 +45,6 @@ echo "Installing Redis, a good key-value database ..."
 echo "Installing ack, a good way to search through files ..."
   brew install ack
 
-echo "installing Git, cus you'll need it"
-  brew install git
   
 #echo "installing php. we use it. sometimes. look, i'm not proud of it either."
 #  brew install https://raw.github.com/adamv/homebrew-alt/raw/master/duplicates/php.rb --with-mysql --with-fpm
