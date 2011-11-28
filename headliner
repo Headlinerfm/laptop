@@ -1,34 +1,18 @@
-echo  -n "where do you want to install? Please use the full path to directory we will clone headliner into"
-read PATH
-echo  -n "install to $PATH: y/n?"
-read INSTALL
-
-if [ INSTALL = "y" ]; then
-  mkdir -p $PATH
-  echo  -n "what is your name?, first and last please"
-  read NAME
-  git config --global user.name $NAME
-  echo  -n "what is your headliner email address?"
-  read EMAIL
-  git config --global user.email $EMAIL
-  git clone git@github.com:Headlinerfm/headlinerlite.git $PATH/headlinerlite
-  cd $PATH/headlinerlite
-  git checkout dev
-  git submodule init
-  git submodule update
-  mysql -u root -h localhost -e "create database headlinerlite; grant all on headlinerlite.* to 'root'@'localhost'"
-  mysql -u root -h localhost -e "create database headlinerlite_dev; grant all on headlinerlite_dev to 'root'@'localhost'"
-  bundle install --path vendor
-  bundle pack
-  rake db:migrate
-  rake db:seed
-  rake db:test:prepare
-  echo " now, downloading the php headliner website"
-  git clone git@github.com:Headlinerfm/HeadlinerWebsite.git $PATH/HeadlinerWebsite
-  
-else
-  echo "ok, so we won't install headliner."
-fi
+mkdir -p /var/www/
+git clone git@github.com:Headlinerfm/headlinerlite.git /var/www/headlinerlite
+cd /var/www/headlinerlite
+git checkout dev
+git submodule init
+git submodule update
+mysql -u root -h localhost -e "create database headlinerlite; grant all on headlinerlite.* to 'root'@'localhost'"
+mysql -u root -h localhost -e "create database headlinerlite_dev; grant all on headlinerlite_dev to 'root'@'localhost'"
+bundle install --path vendor
+bundle pack
+rake db:migrate
+rake db:seed
+rake db:test:prepare
+echo " now, downloading the php headliner website"
+git clone git@github.com:Headlinerfm/HeadlinerWebsite.git /var/www/HeadlinerWebsite
 
 echo "installing nginx, you'll thank us later."
 bundle exec passenger-install-nginx-module  --auto --auto-download
