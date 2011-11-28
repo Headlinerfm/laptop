@@ -45,8 +45,8 @@ echo "Installing ack, a good way to search through files ..."
 echo "installing Git, cus you'll need it"
   brew install git
   
-echo "installing php. we use it. sometimes. look, i'm not proud of it either."
-  brew install https://raw.github.com/adamv/homebrew-alt/raw/master/duplicates/php.rb --with-mysql --with-fpm
+#echo "installing php. we use it. sometimes. look, i'm not proud of it either."
+#  brew install https://raw.github.com/adamv/homebrew-alt/raw/master/duplicates/php.rb --with-mysql --with-fpm
 
 
 # echo "Installing tmux, a good way to save project state and switch between projects ..."
