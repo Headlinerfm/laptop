@@ -9,10 +9,10 @@ mysql -u root -h localhost -e "create database headlinerlite_dev; grant all on h
 gem install bundler
 bundle install --path vendor
 bundle pack
-rake db:migrate
-rake db:seed
-rake db:test:prepare
-#echo " now, downloading the php headliner website"
+bundle exec rake db:migrate
+bundle exec rake db:seed
+bundle exec rake db:test:prepare
+#echo "now, downloading the php headliner website"
 #git clone git@github.com:Headlinerfm/HeadlinerWebsite.git /var/www/HeadlinerWebsite
 
 echo "installing nginx, you'll thank us later."
