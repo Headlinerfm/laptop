@@ -9,6 +9,9 @@ mysql -u root -h localhost -e "create database headlinerlite_dev; grant all on h
 gem install bundler
 bundle install --path vendor
 bundle pack
+cd ./config;
+for old in *.yml.default; do cp $old `basename $old .yml.default`.yml; done;
+cd ..
 bundle exec rake db:migrate
 bundle exec rake db:seed
 bundle exec rake db:test:prepare
