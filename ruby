@@ -1,6 +1,6 @@
 echo "Installing Ruby enterprise edition and making it the default Ruby ..."
-  rvm install ree
-  rvm use ree --default
+  rvm install ree-1.8.7-2011.12
+  rvm use ree-1.8.7-2011.12 --default
 
 # echo "Installing Rails to write and run web applications ..."
 #   gem install rails --no-rdoc --no-ri

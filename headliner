@@ -6,6 +6,7 @@ git submodule init
 git submodule update
 mysql -u root -h localhost -e "create database headlinerlite; grant all on headlinerlite.* to 'root'@'localhost'"
 mysql -u root -h localhost -e "create database headlinerlite_dev; grant all on headlinerlite_dev to 'root'@'localhost'"
+gem install bundler
 bundle install --path vendor
 bundle pack
 rake db:migrate
