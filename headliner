@@ -22,9 +22,6 @@ cd /var/www/;
 sudo mkdir headliner;
 cd headliner;
 sudo ln -s ../headlinerlite/public/ exchange;
-echo "installing nginx, you'll thank us later."
-gem install passenger
-rvmsudo passenger-install-nginx-module  --auto --auto-download
 
 # [[ -f ~/.ssh/id_rsa.pub ]] && cat ~/.ssh/id_rsa.pub >> $PATH/headlinerlite/authorized_keys
 # git commit authorized_keys -m "$NAME keys"

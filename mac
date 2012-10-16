@@ -44,8 +44,7 @@ echo "Installing Redis, a good key-value database ..."
 
 echo "Installing ack, a good way to search through files ..."
   brew install ack
-
-  
+ 
 #echo "installing php. we use it. sometimes. look, i'm not proud of it either."
 #  brew install https://raw.github.com/adamv/homebrew-alt/raw/master/duplicates/php.rb --with-mysql --with-fpm
 
@@ -57,7 +56,7 @@ echo "Installing ack, a good way to search through files ..."
 #   brew install imagemagick
 
 echo "Installing RVM (Ruby Version Manager) ..."
-  curl -s https://rvm.beginrescueend.com/install/rvm -o rvm-installer ; chmod +x rvm-installer ; ./rvm-installer --version latest
+  curl -L https://get.rvm.io | bash -s stable --ruby
   echo "
 # RVM
 [[ -s '/Users/`whoami`/.rvm/scripts/rvm' ]] && source '/Users/`whoami`/.rvm/scripts/rvm'" >> ~/.bash_profile
